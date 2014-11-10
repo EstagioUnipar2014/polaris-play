@@ -1,0 +1,40 @@
+@(animalForm : Form[Animal]) @main("") {
+<div class="container">
+	<h2>Novo animal</h2>
+	<br>
+	<div class="col-md-4">
+		@helper.form(action = routes.AnimaisController.save) {
+			@helper.input(animalForm("nome")) { (id, name, value, args) =>
+            	<input type="text" value="@value" class="form-control" placeholder="Nome" name="@name" id="@id" @toHtmlArgs(args)>
+            }
+			<br> 
+			@helper.input(animalForm("identificacao")) { (id, name, value, args) =>
+				<input type="text" value="@value" class="form-control" placeholder="Identificação" name="@name" id="@id" @toHtmlArgs(args)>
+			}
+			<br>
+			@helper.input(animalForm("ativo")) { (id, name, value, args) =>
+				<input type="checkbox" value="@value" name="@name" id="@id" @toHtmlArgs(args)>
+				<label>Ativo?</label>
+			}
+			<br> 
+			@helper.input(animalForm("emLactacao")) { (id, name, value, args) =>
+				<input type="checkbox" value="@value" name="@name" id="@id" @toHtmlArgs(args)>
+				<label>Em lactação?</label>
+			}
+			<br>
+			@helper.input(animalForm("nascidoNaPropriedade")) { (id, name, value, args) =>
+				<input type="checkbox" value="@value" name="@name" id="@id" @toHtmlArgs(args)>
+				<label>Nascido na propriedade?</label>
+			}
+			<br> 
+			@helper.input(animalForm("informacoes")) { (id, name, value, args) =>
+				<input value="@value" class="form-control" placeholder="Informações" name="@name" id="@id" @toHtmlArgs(args)>
+			}
+			<br> 
+			@helper.select(animalForm("raca.id"), helper.options(models.Raca.listarRacas), 'class -> "form-control")
+			<br>
+			<input class="btn btn-large btn-success" type="submit" value="Cadastrar animal" />
+		}
+	</div>
+</div>
+}

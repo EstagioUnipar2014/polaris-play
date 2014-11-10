@@ -1,0 +1,30 @@
+@(animais: List[Animal]) @main("") {
+<div class="container">
+ 	<div id="message"></div>
+	<h2>Animais</h2>
+	<table class="table">
+		<tr>
+			<th>Identificação</th>
+			<th>Nome</th>
+			<th>Raça</th>
+			<th>Ativo</th>
+			<th>Nascido na propriedade</th>
+			<th>Em lactação</th>
+			<th></th>
+			<th></th>
+		</tr>
+		@for(animal <- animais) {
+			<tr>
+				<td>@animal.identificacao</td>
+				<td>@animal.nome</td>
+				<td>@animal.raca.nome</td>
+				<td>@animal.ativo</td>
+				<td>@animal.nascidoNaPropriedade</td>
+				<td>@animal.emLactacao</td>
+				<td><a href="/animais/edit?id=@animal.id">Editar</a></td>
+				<td><a href="/animais/remove?id=@animal.id">Remover</a></td>
+			</tr>
+		}
+	</table>
+</div>
+}

@@ -1,0 +1,17 @@
+@(pesagemForm : Form[Pesagem]) @main("") {
+<div class="container">
+	<h2>Nova pesagem</h2>
+	<br>
+	<div class="col-md-4">
+		@helper.form(action = routes.PesagensController.save) {
+			@helper.select(pesagemForm("animal.id"), helper.options(models.Animal.listarAnimais), 'class -> "form-control")
+			<br>
+			@helper.input(pesagemForm("peso")) { (id, name, value, args) =>
+            	<input type="number" value="@value" class="form-control" placeholder="Nome" name="@name" id="@id" @toHtmlArgs(args)>
+            }
+            <br>
+			<input class="btn btn-large btn-success" type="submit" value="Cadastrar pesagem" />
+		}
+	</div>
+</div>
+}

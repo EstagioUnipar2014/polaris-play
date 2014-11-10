@@ -1,0 +1,20 @@
+@(id: Long, pesagemForm: Form[Pesagem]) @main("") {
+<div class="container">
+	<h2>Editar pesagem</h2>
+	<br>
+	<div class="col-md-4">
+		@helper.form(action = routes.PesagensController.update(id)) {
+			  @defining(pesagemForm("id")) { uidField =>
+              	<input type="hidden" name="@uidField.name" id="@uidField.id" value="@uidField.value">
+	          }
+	        @helper.select(pesagemForm("animal.id"), helper.options(models.Animal.listarAnimais), 'class -> "form-control")
+			<br>
+			@helper.input(pesagemForm("peso")) { (id, name, value, args) =>
+            	<input type="number" value="@value" class="form-control" placeholder="Nome" name="@name" id="@id" @toHtmlArgs(args)>
+            }
+            <br>
+			<input class="btn btn-large btn-success" type="submit" value="Atualizar pesagem" />
+		}
+	</div>
+</div>
+}

@@ -1,0 +1,21 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.AnimaisController.index()
+GET		/animais					controllers.AnimaisController.index()
+GET		/animais/create				controllers.AnimaisController.create()
+POST	/animais/save				controllers.AnimaisController.save()
+GET		/animais/edit				controllers.AnimaisController.edit(id : Long)
+POST	/animais/update				controllers.AnimaisController.update(id : Long)
+GET		/animais/remove				controllers.AnimaisController.remove(id : Long)
+GET		/pesagens					controllers.PesagensController.index()
+GET		/pesagens/create			controllers.PesagensController.create()
+POST	/pesagens/save				controllers.PesagensController.save()
+GET		/pesagens/edit				controllers.PesagensController.edit(id : Long)
+POST	/pesagens/update			controllers.PesagensController.update(id : Long)
+GET		/pesagens/remove			controllers.PesagensController.remove(id : Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

@@ -1,0 +1,20 @@
+@(pesagens: List[Pesagem]) @main("") {
+<div class="container">
+ 	<div id="message"></div>
+	<h2>Pesagens</h2>
+	<table class="table">
+		<tr>
+			<th>Animal</th>
+			<th>Peso</th>
+			<th></th>
+		</tr>
+		@for(pesagem <- pesagens) {
+			<tr>
+				<td>@pesagem.animal.identificacao , @pesagem.animal.nome</td>
+				<td>@pesagem.peso</td>
+				<td><a href="/pesagens/remove?id=@pesagem.id">Remover</a></td>
+			</tr>
+		}
+	</table>
+</div>
+}
