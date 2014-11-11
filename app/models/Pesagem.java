@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.Entity;
+import play.data.validation.Constraints;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -19,6 +20,7 @@ public class Pesagem extends Model {
 	@GeneratedValue
 	public Long id;
 
+	@Constraints.Required
 	public Double peso;
 	
 	@ManyToOne

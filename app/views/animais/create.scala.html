@@ -12,20 +12,13 @@
 				<input type="text" value="@value" class="form-control" placeholder="Identificação" name="@name" id="@id" @toHtmlArgs(args)>
 			}
 			<br>
-			@helper.input(animalForm("ativo")) { (id, name, value, args) =>
-				<input type="checkbox" value="@value" name="@name" id="@id" @toHtmlArgs(args)>
-				<label>Ativo?</label>
-			}
+			@helper.checkbox(animalForm("ativo"))
+			
 			<br> 
-			@helper.input(animalForm("emLactacao")) { (id, name, value, args) =>
-				<input type="checkbox" value="@value" name="@name" id="@id" @toHtmlArgs(args)>
-				<label>Em lactação?</label>
-			}
+			@helper.checkbox(animalForm("emLactacao"))
+			
 			<br>
-			@helper.input(animalForm("nascidoNaPropriedade")) { (id, name, value, args) =>
-				<input type="checkbox" value="@value" name="@name" id="@id" @toHtmlArgs(args)>
-				<label>Nascido na propriedade?</label>
-			}
+			@helper.checkbox(animalForm("nascidoNaPropriedade")) 
 			<br> 
 			@helper.input(animalForm("informacoes")) { (id, name, value, args) =>
 				<input value="@value" class="form-control" placeholder="Informações" name="@name" id="@id" @toHtmlArgs(args)>

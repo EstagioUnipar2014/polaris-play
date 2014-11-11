@@ -24,7 +24,11 @@ public class PesagensController extends Controller {
 
 	public static Result save() {
 		Form<Pesagem> form = pesagemForm.bindFromRequest();
-		form.get().save();
+		try {
+			form.get().save();
+		} catch (Exception e) {
+			return ok(create.render(form));
+		}
 		return redirect(routes.AnimaisController.index());
 	}
 

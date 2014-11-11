@@ -4,12 +4,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import javax.xml.ws.RequestWrapper;
+import play.data.validation.Constraints;
 
 import play.db.ebean.Model;
 
@@ -24,15 +21,16 @@ public class Animal extends Model {
 	@GeneratedValue
 	public Long id;
 
+	@Constraints.Required
 	public String identificacao;
 
 	public String nome;
 
-	public Boolean ativo;
+	public Boolean ativo = false;
 
-	public Boolean emLactacao;
+	public Boolean emLactacao = false;
 
-	public Boolean nascidoNaPropriedade;
+	public Boolean nascidoNaPropriedade = false;
 
 	public String informacoes;
 
@@ -49,6 +47,14 @@ public class Animal extends Model {
 			options.put(e.id.toString(), e.nome);
 		}
 		return options;
+	}
+	
+	public static String simNao(boolean b){
+		if (b){
+			return "Sim";
+		}else{
+			return "Não";
+		}
 	}
 
 }

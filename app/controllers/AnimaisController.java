@@ -11,6 +11,7 @@ import play.mvc.Result;
 import views.html.animais.create;
 import views.html.animais.edit;
 import views.html.animais.list;
+import views.html.animais.show;
 
 public class AnimaisController extends Controller {
 
@@ -27,8 +28,17 @@ public class AnimaisController extends Controller {
 
 	public static Result save() {
 		Form<Animal> form = animalForm.bindFromRequest();
-		form.get().save();
+		try {
+			form.get().save();
+		} catch (Exception e) {
+			return ok(create.render(form));
+		}
 		return redirect(routes.AnimaisController.index());
+	};
+	
+	public static Result show(Long id){
+		Animal animal = Animal.find.ref(id);
+		return ok(show.render(animal));
 	};
 
 	public static Result edit(Long id) {
