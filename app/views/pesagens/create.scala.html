@@ -9,6 +9,7 @@
 			@helper.input(pesagemForm("peso")) { (id, name, value, args) =>
             	<input type="number" value="@value" class="form-control" placeholder="Nome" name="@name" id="@id" @toHtmlArgs(args)>
             }
+            @helper.select(pesagemForm("unidade.id"), helper.options(models.Unidade.listarUnidades), 'class -> "form-control")
             <br>
 			<input class="btn btn-large btn-success" type="submit" value="Cadastrar pesagem" />
 		}

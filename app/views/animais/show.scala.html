@@ -1,0 +1,31 @@
+@(animal : Animal) @main("") {
+	<div class="container">
+		<h2>Animal</h2>
+		
+		<label>Identificação:</label> 
+		<spam>@animal.identificacao</spam>
+		<br>
+		<label>Nome: </label>
+		<spam>@animal.nome</spam>
+		<br>
+		<label>Em lactação? </label>
+		<spam>@Animal.simNao(animal.emLactacao)</spam>
+		<br>
+		<label>Ativo? </label>
+		<spam>@Animal.simNao(animal.ativo)</spam>
+		<br>
+		<label>Nascido na propriedade? </label>
+		<spam>@Animal.simNao(animal.nascidoNaPropriedade)</spam>
+		<br>
+		<label>Informações</label><br>
+		<spam>@animal.informacoes</spam>
+		<br>
+		<h3>Pesagens</h3>
+		@for(pesagem <- animal.pesagens) {
+			<label>Peso: </label>
+			<spam>@pesagem.peso, @pesagem.unidade.abreviacao</spam>
+		}
+		<br>
+		<a href="/animais/edit?id=@animal.id">Editar</a>
+	</div>
+}

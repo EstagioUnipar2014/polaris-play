@@ -11,6 +11,7 @@
 			@helper.input(animalForm("identificacao")) { (id, name, value, args) =>
 				<input type="text" value="@value" class="form-control" placeholder="Identificação" name="@name" id="@id" @toHtmlArgs(args)>
 			}
+			@helper.select(animalForm("raca.id"), helper.options(models.Raca.listarRacas), 'class -> "form-control")
 			<br>
 			@helper.checkbox(animalForm("ativo"))
 			
@@ -20,12 +21,8 @@
 			<br>
 			@helper.checkbox(animalForm("nascidoNaPropriedade")) 
 			<br> 
-			@helper.input(animalForm("informacoes")) { (id, name, value, args) =>
-				<input value="@value" class="form-control" placeholder="Informações" name="@name" id="@id" @toHtmlArgs(args)>
-			}
+			@helper.textarea(field = animalForm("informacoes"), args = 'rows -> 3, 'cols -> 50)
 			<br> 
-			@helper.select(animalForm("raca.id"), helper.options(models.Raca.listarRacas), 'class -> "form-control")
-			<br>
 			<input class="btn btn-large btn-success" type="submit" value="Cadastrar animal" />
 		}
 	</div>

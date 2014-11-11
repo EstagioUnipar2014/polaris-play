@@ -16,7 +16,7 @@
 					@for(pesagem <- pesagens) {
 					<tr>
 						<td>@pesagem.animal.identificacao , @pesagem.animal.nome</td>
-						<td>@pesagem.peso</td>
+						<td>@pesagem.peso, @pesagem.unidade.abreviacao</td>
 						<td><a href="/pesagens/remove?id=@pesagem.id">Remover</a></td>
 					</tr>
 					}

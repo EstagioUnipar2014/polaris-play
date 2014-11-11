@@ -26,5 +26,9 @@ public class Pesagem extends Model {
 	@ManyToOne
 	@JoinColumn(name = "animal_id")
 	public Animal animal;
+	
+	@ManyToOne
+	@JoinColumn(name = "unidade_id")
+	public Unidade unidade;
 
 }
