@@ -1,4 +1,4 @@
-@(animal : Animal) @main("") {
+@(animal : Animal) @main("Dados do animal") {
 	<div class="container">
 		<h2>Animal</h2>
 		
@@ -7,6 +7,12 @@
 		<br>
 		<label>Nome: </label>
 		<spam>@animal.nome</spam>
+		<br>
+		<label>Raça: </label>
+		<spam>@animal.raca.nome</spam>
+		<br>
+		<label>Sexo: </label>
+		<spam>@animal.sexo</spam>
 		<br>
 		<label>Em lactação? </label>
 		<spam>@Animal.simNao(animal.emLactacao)</spam>

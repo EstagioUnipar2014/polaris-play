@@ -1,13 +1,14 @@
 package models;
 
 import java.util.LinkedHashMap;
+import javax.persistence.CascadeType;
 import java.util.List;
 import java.util.Map;
 
 import javax.persistence.*;
 import javax.xml.ws.RequestWrapper;
-import play.data.validation.Constraints;
 
+import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
 @Entity(name = "animal")
@@ -25,6 +26,8 @@ public class Animal extends Model {
 	public String identificacao;
 
 	public String nome;
+	
+	public String sexo;
 
 	public Boolean ativo = false;
 
@@ -38,7 +41,7 @@ public class Animal extends Model {
 	@JoinColumn(name = "raca_id")
 	public Raca raca;
 
-	@OneToMany(mappedBy = "animal")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "animal")
 	public List<Pesagem> pesagens;
 
 	public static Map<String, String> listarAnimais() {

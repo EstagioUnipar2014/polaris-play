@@ -1,4 +1,4 @@
-@(animalForm : Form[Animal]) @main("") {
+@(animalForm : Form[Animal]) @main("Novo animal") {
 <div class="container">
 	<h2>Novo animal</h2>
 	<br>
@@ -13,8 +13,9 @@
 			}
 			@helper.select(animalForm("raca.id"), helper.options(models.Raca.listarRacas), 'class -> "form-control")
 			<br>
+			@helper.select(animalForm("sexo"), options = Seq("Fêmea"->"Fêmea", "Macho"->"Macho"), 'class -> "form-control")
+			<br>
 			@helper.checkbox(animalForm("ativo"))
-			
 			<br> 
 			@helper.checkbox(animalForm("emLactacao"))
 			

@@ -7,6 +7,7 @@ create table animal (
   id                        bigint not null,
   identificacao             varchar(255),
   nome                      varchar(255),
+  sexo                      varchar(255),
   ativo                     boolean,
   em_lactacao               boolean,
   nascido_na_propriedade    boolean,

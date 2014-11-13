@@ -1,16 +1,18 @@
-@(animais: List[Animal]) @main("") {
+@(animais: List[Animal]) @main("Lista de animais") {
 <div class="container">
 	<div id="message"></div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h2 class="page-title animais">Animais</h2>
-			<a href="/animais/create">Novo Animal</a>
+			<a href="/animais/create">Novo Animal</a> |
+			<a href="/pesagens/create">Nova Pesagem</a>
 			<table class="table table-condensed">
 				<thead>
 					<tr>
 						<th>Identificação</th>
 						<th>Nome</th>
 						<th>Raça</th>
+						<th>Sexo</th>
 						<th>Ativo</th>
 						<th>Nascido na propriedade</th>
 						<th>Em lactação</th>
@@ -24,6 +26,7 @@
 					<td>@animal.identificacao</td>
 					<td>@animal.nome</td>
 					<td>@animal.raca.nome</td>
+					<td>@animal.sexo</td>
 					<td>@Animal.simNao(animal.ativo)</td>
 					<td>@Animal.simNao(animal.nascidoNaPropriedade)</td>
 					<td>@Animal.simNao(animal.emLactacao)</td>

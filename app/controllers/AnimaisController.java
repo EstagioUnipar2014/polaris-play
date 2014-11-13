@@ -47,7 +47,12 @@ public class AnimaisController extends Controller {
 	};
 
 	public static Result update(Long id) {
-		animalForm.bindFromRequest().get().update(id);
+		try {
+			animalForm.bindFromRequest().get().update(id);
+		} catch (Exception e) {
+			Form<Animal> form = form(Animal.class).fill(Animal.find.byId(id));
+			return ok(edit.render(id, form));
+		}
 		return redirect(routes.AnimaisController.index());
 	};
 

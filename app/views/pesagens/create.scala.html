@@ -1,4 +1,4 @@
-@(pesagemForm : Form[Pesagem]) @main("") {
+@(pesagemForm : Form[Pesagem]) @main("Nova pesagem") {
 <div class="container">
 	<h2>Nova pesagem</h2>
 	<br>
@@ -7,7 +7,7 @@
 			@helper.select(pesagemForm("animal.id"), helper.options(models.Animal.listarAnimais), 'class -> "form-control")
 			<br>
 			@helper.input(pesagemForm("peso")) { (id, name, value, args) =>
-            	<input type="number" value="@value" class="form-control" placeholder="Nome" name="@name" id="@id" @toHtmlArgs(args)>
+            	<input type="number" value="@value" class="form-control" placeholder="peso" name="@name" id="@id" @toHtmlArgs(args)>
             }
             @helper.select(pesagemForm("unidade.id"), helper.options(models.Unidade.listarUnidades), 'class -> "form-control")
             <br>
